@@ -1,1 +1,1 @@
-web: yarn dev --port $PORT 
+web: yarn dev --port $PORT --host
