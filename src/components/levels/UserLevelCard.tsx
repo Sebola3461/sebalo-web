@@ -1,6 +1,7 @@
-import { keyframes, Paper, Typography } from "@mui/material";
+import { Box, keyframes, Paper, Typography } from "@mui/material";
+import { useState, useEffect } from "react";
 
-export default ({ user }: any) => {
+export default ({ user, index }: any) => {
   const fadeLeft = keyframes`
   0% {
     opacity: 0;
@@ -11,13 +12,19 @@ export default ({ user }: any) => {
     margin-left: 0px;
 }`;
 
+  const float = keyframes`    
+  0% { transform: translate(0,  0px); }
+  50%  { transform: translate(0, 15px); }
+  100%   { transform: translate(0, -0px); } 
+  `;
+
   return (
     <>
       <Paper
         sx={{
-          width: "80%",
-          maxWidth: "1000px",
-          height: "40px",
+          width: `${index == 0 ? "90%" : "80%"}`,
+          maxWidth: `${index == 0 ? "1080px" : "1000px"}`,
+          height: `${index == 0 ? "80px" : "60px"}`,
           display: "flex",
           flexDirection: "row",
           flexWrap: "nowrap",
@@ -27,16 +34,29 @@ export default ({ user }: any) => {
           padding: "0px 1%",
           margin: "5px 0px",
           cursor: "pointer",
-          animation: `${fadeLeft} 450ms linear`,
+          animation: `${fadeLeft} 450ms ease-in-out`,
           ":hover": {
             bgcolor: "#414141",
           },
         }}
       >
+        <Box
+          sx={{
+            width: `${index == 0 ? "60px" : "40px"}`,
+            height: `${index == 0 ? "60px" : "40px"}`,
+            margin: "10px",
+            marginLeft: 0,
+            borderRadius: 1,
+            backgroundImage: `url(${user.user.avatar})`,
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}
+        ></Box>
         <Typography
-          variant="h6"
+          variant={`${index == 0 ? "h5" : "h6"}`}
           sx={{
             marginRight: "10px",
+            color: `${index == 0 ? "#ffe8a7" : "#ffffff"}`,
           }}
         >
           #{user.rank}

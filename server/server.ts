@@ -3,6 +3,7 @@ import { Handler } from "express";
 import routes from "./api/routes";
 const router = express();
 import "./database";
+import "./twitch/connect";
 
 routes(router);
 

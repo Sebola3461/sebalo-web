@@ -22,6 +22,7 @@ export default async (req: Request, res: Response) => {
           user: {
             _id: u._id,
             username: u.username,
+            avatar: u.avatar,
           },
           level: l,
         });
