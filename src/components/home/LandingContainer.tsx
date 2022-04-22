@@ -133,6 +133,7 @@ export default () => {
               marginLeft: 0,
             },
           }}
+          href="https://osu.ppy.sh/oauth/authorize?response_type=code&redirect_uri=https://sebola-twitch-authorization.herokuapp.com/osu&client_id=14230"
         >
           Add me to your chat
         </Button>
