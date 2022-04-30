@@ -7,6 +7,8 @@ import { ThemeProvider } from "@mui/material";
 import { theme } from "./styles/theme";
 import Levels from "./pages/Levels";
 import ChannelLevels from "./pages/ChannelLevels";
+import Authenticate from "./pages/Authenticate";
+import Dashboard from "./pages/Dashboard";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -21,6 +23,12 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           </Route>
           <Route path="/levels/:channel" element={<ChannelLevels />}>
             <Route index element={<ChannelLevels />} />
+          </Route>
+          <Route path="/dashboard/:channel" element={<Dashboard />}>
+            <Route index element={<Dashboard />} />
+          </Route>
+          <Route path="/authorize" element={<Authenticate />}>
+            <Route index element={<Authenticate />} />
           </Route>
         </Routes>
       </BrowserRouter>

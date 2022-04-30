@@ -4,9 +4,17 @@ import mix from "vite-plugin-mix";
 
 export default defineConfig({
   plugins: [
-    react(),
+    react({
+      fastRefresh: false,
+    }),
     mix({
       handler: "./server/server.ts",
     }),
   ],
+  build: {
+    outDir: "./build",
+  },
+  server: {
+    port: Number(process.env.PORT),
+  },
 });

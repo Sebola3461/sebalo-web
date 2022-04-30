@@ -8,6 +8,7 @@ export default new Schema({
     type: Object,
     default: {
       token: "",
+      web_token: "",
       channel: "",
       id: "",
     },
